@@ -20,6 +20,7 @@ server.get('/checkpay',(req, res) => {
                success: true,
                status: status
            })
+           status = ''
        }
 })
 server.listen(port, () => {
