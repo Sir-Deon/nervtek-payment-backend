@@ -3,6 +3,10 @@ const cors  = require('cors')
 let port = process.env.PORT || 5000
 server.use(cors())
 
+
+server.get('/', (req, res) => {
+    res.send("Nervtek payment backend")
+})
 server.get('/callback',(res, req) =>{
     console.log("heyyyyyyyy");
 })
