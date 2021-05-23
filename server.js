@@ -10,7 +10,7 @@ server.get('/', (req, res) => {
 })
 server.get('/callback',(req, res) =>{
    status = req.query.status
-   console.log(status);
+  console.log(req.query);
 })
 
 server.get('/checkpay',(req, res) => {
