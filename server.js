@@ -7,8 +7,8 @@ server.use(cors())
 server.get('/', (req, res) => {
     res.send("Nervtek payment backend")
 })
-server.get('/callback',(res, req) =>{
-    console.log(req.url);
+server.get('/callback',(req, res) =>{
+    console.log(req.query);
 })
 
 server.get('/checkpay',(req, res) => {
