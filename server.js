@@ -14,7 +14,11 @@ server.get('/callback',(req, res) =>{
 })
 
 server.get('/checkpay',(req, res) => {
-       
+       if(status = "SUCCESSFUL"){
+           res.json({
+               success: true
+           })
+       }
 })
 server.listen(port, () => {
     console.log(`server started at port: ${port}`);
