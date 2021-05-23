@@ -8,7 +8,7 @@ server.get('/', (req, res) => {
     res.send("Nervtek payment backend")
 })
 server.get('/callback',(res, req) =>{
-    console.log("heyyyyyyyy");
+    console.log(req.url);
 })
 
 server.get('/checkpay',(req, res) => {
