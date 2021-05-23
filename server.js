@@ -15,7 +15,7 @@ server.get('/callback',(req, res) =>{
 
 server.get('/checkpay',(req, res) => {
     console.log(status);
-       if(status = "SUCCESSFUL"){
+       if(status == "SUCCESSFUL"){
            res.json({
                success: true,
                status: status
