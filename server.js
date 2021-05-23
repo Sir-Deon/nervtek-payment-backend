@@ -3,16 +3,18 @@ const cors  = require('cors')
 let port = process.env.PORT || 5000
 server.use(cors())
 
+let status = 'pending'
 
 server.get('/', (req, res) => {
     res.send("Nervtek payment backend")
 })
 server.get('/callback',(req, res) =>{
-    console.log(req.query);
+   status = req.query.status
+   console.log(status);
 })
 
 server.get('/checkpay',(req, res) => {
-
+       
 })
 server.listen(port, () => {
     console.log(`server started at port: ${port}`);
