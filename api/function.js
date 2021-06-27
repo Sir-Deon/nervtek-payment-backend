@@ -28,7 +28,7 @@ router.post("/create", upload.single("image"), (req, res) => [
   create(req, res),
 ]);
 router.get("/get", (req, res) => [getEvent(req, res)]);
-router.put("/update/:id", upload.single('image'), (req, res) => [
+router.put("/update/:id", upload.single("image"), (req, res) => [
   update(req, res),
 ]);
 router.delete("/delete/:id", (req, res) => [deleteEvent(req, res)]);

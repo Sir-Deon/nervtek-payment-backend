@@ -62,20 +62,9 @@ const deleteEvent = async (req, res) => {
 const update = async (req, res) => {
   const { name, cost, form, state } = req.body;
   const id = req.params.id;
-  const prefiix = "";
-  let formCode = "";
-  const suffix = "";
-  let code = "";
-  if (form.includes("usp=sf_link")) {
-    prefiix = "https://docs.google.com/forms/d/e/";
-    formCode = form.split("/")[6];
-    suffix = "/viewform?embedded=true";
-
-    code = prefiix + formCode + suffix;
-  } else {
-    code = form;
-  }
-
+  const prefiix = "https://docs.google.com/forms/d/e/";
+  const formCode = form.split("/")[6];
+  const suffix = "/viewform?embedded=true";
   let pic = "";
   try {
     if (req.file.filename) {
@@ -89,7 +78,7 @@ const update = async (req, res) => {
         {
           $set: {
             name: name,
-            form: code,
+            form: prefiix + formCode + suffix,
             cost: cost,
             image: pic,
             state: state,
@@ -100,7 +89,6 @@ const update = async (req, res) => {
           res.json({
             success: true,
           });
-          
         })
         .catch((err) => {
           res.json({
@@ -109,7 +97,7 @@ const update = async (req, res) => {
           });
           console.log(err);
         });
-        return
+      return;
     }
   } catch (error) {}
 
