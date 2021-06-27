@@ -1,8 +1,8 @@
 const Event = require("../models/event");
 require("dotenv/config");
 
-const baseUrl = "http://localhost:5000/";
-// const baseUrl = process.env.PROD_BACKEND;
+// const baseUrl = "http://localhost:5000/";
+const baseUrl = process.env.PROD_BACKEND;
 
 const create = async (req, res) => {
   const { name, form, cost } = req.body;
