@@ -60,7 +60,7 @@ app.get("/callback", (req, res) => {
   console.log(req.query);
   io.on("paying", room => {
     if (status === "SUCCESSFUL") {
-      io.to(room).emit(status, status);
+      io.to(room).emit("SUCCESSFUL", status);
     }
   });
 });
