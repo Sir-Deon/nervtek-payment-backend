@@ -59,8 +59,8 @@ app.get("/callback", (req, res) => {
   status = req.query.status;
   console.log(req.query);
   io.on("paying", room => {
-    if (status === "SUCCESS") {
-      io.to(room).emit("paid", status);
+    if (status === "SUCCESSFUL") {
+      io.to(room).emit(status, status);
     }
   });
 });
