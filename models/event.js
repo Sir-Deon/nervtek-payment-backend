@@ -16,12 +16,8 @@ const eventSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  image: {
+  description: {
     type: String,
-  },
-  income: {
-    type: Number,
-    default: 0,
   },
 });
 
