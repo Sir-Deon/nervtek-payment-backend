@@ -49,8 +49,9 @@ app.use("/api/admin/", func);
 
 io.on("connection", async socket => {
   console.log("New participant connected");
-  socket.on("joinRoom", roomName => {
-    socket.join(roomName);
+  socket.on("join", room => {
+    socket.join(room);
+    console.log(`${socket.id} joined ${room}`);
   });
 });
 
@@ -58,11 +59,9 @@ let status = null;
 app.get("/callback", (req, res) => {
   status = req.query.status;
   console.log(req.query);
-  io.on("paying", room => {
-    if (status === "SUCCESSFUL") {
-      io.to(room).emit("SUCCESSFUL", status);
-    }
-  });
+  if (status === "SUCCESSFUL") {
+    io.to(req.query.external_reference).emit("SUCCESSFUL", status);
+  }
 });
 
 http.listen(port, () => {
